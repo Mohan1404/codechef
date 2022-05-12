@@ -1,0 +1,22 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+  int t;
+  cin>>t;
+  while(t--){
+      int n;
+      cin>>n;
+      vector<int> a(n), b(n);
+      for(int &x: a) cin>>x;
+      for(int &x: b) cin>>x;
+      map<pair<int,int>,int> pre;
+      long long ans = 0;
+      for(int i=0;i<n;i++){
+          ans += pre[{a[i],b[i]}];
+          pre[{b[i],a[i]}]++;
+      }
+      cout<<ans<<'\n';
+  }
+  return 0;
+}
